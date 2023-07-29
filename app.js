@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
-const tasks = require('./routes/task')
-const connectDB = require('./db/connect')
+const tasks = require(__dirname + '/routes/task')
+const connectDB = require(__dirname +  '/db/connect')
 
 const port = process.env.PORT || 3000
 
 app.use(express.json())
-app.use(express.static('./public'))
+app.use(express.static(__dirname + '/public'))
 
 app.use('/api/v1/tasks', tasks)
 
