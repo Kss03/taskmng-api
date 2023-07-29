@@ -6,7 +6,6 @@ let currentUrl = window.location.pathname
 if (currentUrl === '/') {
   currentUrl = ''
 }
-console.log(currentUrl)
 
 //post new task
 formDOM.addEventListener('submit', async (e) => {
