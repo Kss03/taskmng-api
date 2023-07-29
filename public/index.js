@@ -2,14 +2,19 @@ const formDOM = document.querySelector('.create-task')
 const formInputDOM = document.querySelector('.task-create__input')
 const tasksListsDOM = document.querySelector('.tasks-list')
 
+let currentUrl = window.location.pathname
+if (currentUrl === '/') {
+  currentUrl = ''
+}
+console.log(currentUrl)
+
 //post new task
 formDOM.addEventListener('submit', async (e) => {
   e.preventDefault()
   const name = formInputDOM.value
-  console.log(name)
 
   try {
-    await axios.post('/api/v1/tasks', {name})
+    await axios.post(currentUrl + '/api/v1/tasks', {name})
     loadTasks()
   } catch (error) {
     console.log(error)
@@ -21,7 +26,7 @@ const loadTasks = async () => {
   try {
     const {
       data: {tasks},
-    } = await axios.get('/api/v1/tasks')
+    } = await axios.get(currentUrl + '/api/v1/tasks')
     if (tasks.length < 1) {
       tasksListsDOM.innerHTML = '<h5>No tasks in your list</h5>'
       return
@@ -52,7 +57,7 @@ loadTasks()
 const deleteTask = async (el) => {
   const id = el.value
   try {
-    await axios.delete(`api/v1/tasks/${id}`)
+    await axios.delete(currentUrl + `/api/v1/tasks/${id}`)
     loadTasks()
   } catch (error) {
     console.log(error)
@@ -64,7 +69,7 @@ const editTask = async (el) => {
   const completed = el.dataset.completed === "true" ? true : false
   
   try {
-    await axios.patch(`/api/v1/tasks/${id}`, {
+    await axios.patch(currentUrl + `/api/v1/tasks/${id}`, {
       completed: !completed
     })
     loadTasks()
