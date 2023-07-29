@@ -37,10 +37,12 @@ const loadTasks = async () => {
           <h5>
             ${name}
           </h5>
-          <div class="d-flex">
-            <span>ID: ${_id}</span>
-            <button class="btn del-btn" value="${_id}">delete</button>
-            <button class="btn complete-btn" value="${_id}" data-completed="${completed}">${!completed ? 'I DID IT' : "I Didn't it"}</button>
+          <div class="row row-cols-1 row-cols-lg-2">
+            <span class="col">ID: ${_id}</span>
+            <div class="col">
+              <button class="btn del-btn" value="${_id}">delete</button>
+              <button class="btn complete-btn" value="${_id}" data-completed="${completed}">${!completed ? 'I DID IT' : "I Didn't it"}</button>
+            </div>
           </div>
         </div>`
       )

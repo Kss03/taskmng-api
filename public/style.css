@@ -125,6 +125,15 @@ a {
   box-shadow: var(--shadow-3);
 }
 
+@media (max-width: 997.98px) {
+  .task-create {
+    padding: 10px 15px;
+  }
+  .tasks-list {
+    padding: 10px 0;
+  }
+}
+
 .create-task {
   display: flex;
   flex-wrap: nowrap;
