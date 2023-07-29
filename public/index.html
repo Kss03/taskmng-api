@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <div class="task-create">
+      <h1>Task manager</h1>
+      <form action="/api/v1/tasks" 
+        class="create-task"
+        id="create-task">
+          <input 
+            type="text" 
+            name="name" 
+            placeholder="e.g. wash dishes"
+            class="task-create__input"
+            id="task-create__input">
+          <button class="btn submit-btn" type="submit">submit</button>
+      </form>
+    </div>
+    <div class="tasks-list" id="tasks-list">
+
+    </div>
+  </main>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+  integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script src="index.js"></script>
+</body> 
+</html>
